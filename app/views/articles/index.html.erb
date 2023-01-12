@@ -5,12 +5,14 @@
 <p>Find me in the future of farts</p>
 </br>
 <h1>Sharticles</h1>
-<h4>Checkout my Sharticles</h4>
+<h4>Checkout my Sharticles! Total <%= Article.public_count %> articles</h4>
 <ul>
     <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title , article %>
-        </li>
+        <% unless article.archived? %>
+            <li>
+                <%= link_to article.title , article %>
+            </li>
+        <% end %>
     <% end %>
 </ul>
 
